@@ -175,3 +175,34 @@ Como en todo cambio en la base de datos terminamos con una migracion
 ```
 rails db:migrate
 ```
+
+# Consola de rails
+Podemos acceder a esta consola ejectuando el comando
+```
+rails console
+```
+
+Desde acá podemos (entre mucahs cosas) hacer consultas a active record.
+
+Para partir hacemos una coneccion con la base de datos y el nombre del modelo
+```
+Track.connection
+```
+
+Ahora podemos acceder a los datos de este modelo simplemente escribiendo el nombre
+```
+Track
+```
+Algunos comandos utilez
+```
+Track.count # Cuenta cuantas filas tenemos en Track
+Track.first # Obtenemos el primero
+Track.create title: 'A', artist: 'Megadeth', album: 'Peace sells but who's buying' #Creamos un nuevo track
+Track.all # Trae todos los objetos 
+cancion = Track.new # Guardamos un tracl en una variable cancion
+  cancion.title = "For whom the bells tolls"
+  cancion.artist = "Metallica"
+  cancion.save # Con esto se guarda en la base de datos
+```
+
+
