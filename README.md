@@ -26,17 +26,8 @@ Rails new nombreProyecto
 
 Estructura de archivos
 
-Comentare a continucación como funciona la estructura de rails dando una breve explicación a los archivos relevantes.
-```
--environments # Por defecto se generan 3 entornos, cada uno debe ser distinto, local, test, prod
--initializers # codigo que se ejecuta al levantar el server, antes de cargar la app
--locales
--database.yml # Configuracionm de nuesta base de datos, por defecto esta configurada a sqlite
--routes.rb # Permite configurar las rutas a utilizar dentro de nuestra app
-db # Acá va todo lo relacionado a nuestra base de datos
+Comentare a continucación como funciona la estructura de rails dando una breve explicación a los archivos relevantes. 
 
-
-```
 
 | Archivo/Carpeta | Propósito |
 | --------------- | --------- |
@@ -87,4 +78,34 @@ rails generate models
                
 # Tambien podemos llamarlo como
 rails g
+```
+
+# Scaffold (Andamio)
+Con Scaffold le decimos a rails como utiilizaremos nuestra base de datos y en base a esto genera modelos, rutas, controladores, y vistas.
+Es una de las herramientas más utiles para comenzar nuestro desarrollo de manera rápida
+```
+rails g scaffold nombreModelo atributo:tipo_de_dato
+                                      :binary	
+                                      :boolean	
+                                      :date	
+                                      :datetime
+                                      :decimal	
+                                      :float	
+                                      :integer	
+                                      :string	
+                                      :text
+                                      :time
+                                      :timestamp
+                                      # Estos son todos los tipos de datos que soporta el Scaffold
+```
+Más info en detalle sobre todo lo que podemos hacer en un scaffold https://richonrails.com/articles/rails-model-generator-shortcuts
+
+
+Una vez generemos un modelo, scaffold necesitamos generar una migración!
+Una migración es una manera de sincronizar los esquemas con la base de datos y los archivos en ruby de manera simultanea.
+Con esto permitimos que ruby haga todo el trabajo en SQL por nosotros
+
+Ejecutamos una migración con el siguiente comando:
+```
+rake db:migrate
 ```
