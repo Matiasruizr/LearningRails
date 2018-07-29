@@ -109,3 +109,26 @@ Ejecutamos una migración con el siguiente comando:
 ```
 rake db:migrate
 ```
+
+# Rutas
+
+```
+rake routes
+```
+# ActiveRecord
+
+Active Record es la M en MVC - el modelo - el cual es la capa del sistema responsable de representar los datos y la lógica de nogocio para manipularlos. Active Record facilita la creación y manipulación de objetos de negocio quienes requieren ser almacenados persistentemente en una base de datos. Esta es una implementación del patrón de Active Record el cual en si mismo es una descripción de un sitema de Mapeo de Objetos Relacionales
+
+brinda varios mecanismos, los más importantes nos la capacidad para:
+
+  Representar modelos y sus datos.
+  Representar asociaciones entre esos modelos.
+  Representar jerarquías de herencia a través de modelos relacionados.
+  Validar modelos antes the que sean guardados o cambiados en la base de datos.
+  Mantener las operaciones de la base de datos orientadas a objetos.
+
+Nos permite hacer consultas a la base de datos mediante una interaccion con objetos simplificadas, por lo tanto solo interactuamos con objetos de ruby en vez de estar consultando a la base de datos.
+
+# ORM
+
+
