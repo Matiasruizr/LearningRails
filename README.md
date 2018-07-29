@@ -129,6 +129,49 @@ brinda varios mecanismos, los más importantes nos la capacidad para:
 
 Nos permite hacer consultas a la base de datos mediante una interaccion con objetos simplificadas, por lo tanto solo interactuamos con objetos de ruby en vez de estar consultando a la base de datos.
 
-# ORM
+# SQLlite
 
+Para hacer consultas podemos acceder a sqlite3 y hacer consultas a la base de datos directamente, desde la consola situados en nuestro proyectos ejecutamos
+```
+sqlite db/development.sqlite3
+```
 
+# Otro tipo de Base de datos
+
+Tambien podemos utilizar otro tipo de base de datos, por ejemplo para utilizar PostgreSQL
+
+Cambiamos la gema sqlite3 por la gema 'pg'
+
+Y cambiamos nuestro database.yml para que quede de la siguiente manera
+
+```
+postgresql: &postgresql
+  adapter: postgresql
+  host: localhost
+  pool: 5
+  timeout: 5000
+  username: user
+  password: pass
+
+development:
+  <<: *postgresql
+  database: musicapp_development
+
+test:
+  <<: *postgresql
+  database: musicapp_test
+
+production:
+  <<: *postgresql
+  database: musicapp_production
+```
+
+Y luego creamos la base de datos con
+```
+rails db:create
+```
+
+Como en todo cambio en la base de datos terminamos con una migracion
+```
+rails db:migrate
+```
