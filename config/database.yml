@@ -1,0 +1,22 @@
+
+
+postgresql: &postgresql
+  adapter: postgresql
+  host: localhost
+  pool: 5
+  timeout: 5000
+  username: postgres
+  password: tijluzed13
+
+development:
+  <<: *postgresql
+  database: musicapp_development
+
+test:
+  <<: *postgresql
+  database: musicapp_test
+
+production:
+  <<: *postgresql
+  database: musicapp_production
+
