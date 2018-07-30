@@ -199,9 +199,12 @@ Track.count # Cuenta cuantas filas tenemos en Track
 Track.first # Obtenemos el primero
 Track.create title: 'A', artist: 'Megadeth', album: 'Peace sells but who's buying' #Creamos un nuevo track
 Track.all # Trae todos los objetos 
+Track.where title: 'A' # Trae todos los elementos que coincidan con al busqueda
+Track.find_by title: 'A' # Trae el primer elemento que coincida con al busqueda
 cancion = Track.new # Guardamos un tracl en una variable cancion
   cancion.title = "For whom the bells tolls"
   cancion.artist = "Metallica"
+  
   cancion.save # Con esto se guarda en la base de datos
 ```
 
