@@ -1,12 +1,10 @@
 # LearningRails
-Apuntes y ejercicios que he utilizado en mi camino para dominar rails
-
-
+Apuntes y ejercicios que he utilizado en mi camino para dominar rails.
 
 Rails es un framework de desarrollo de aplicaciones web escrito en el lenguaje de programación Ruby. Está diseñado para hacer que la programación de aplicaciones web sea más fácil, haciendo supuestos sobre lo que cada desarrollador necesita para comenzar. Te permite escribir menos código realizando más que muchos otros lenguajes y frameworks. Además,tiene como intención que el desarrollo de aplicaciones web sea más divertido.
 
 
-Filosofia de Rails
+Filosofia de Rails:
 
 DRY - "Don't Repeat Yourself" - sugiere que escribir el mismo código una y otra vez es una mala práctica.
 
