@@ -206,4 +206,4 @@ cancion = Track.new # Guardamos un tracl en una variable cancion
   cancion.save # Con esto se guarda en la base de datos
 ```
 
-
+# Modelos
