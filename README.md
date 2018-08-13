@@ -207,3 +207,33 @@ cancion = Track.new # Guardamos un tracl en una variable cancion
 ```
 
 # Modelos
+
+Creacion de modelos sin usar scaffold, simplemente creamos el archivo dentro de models, en este caso palylist.rb y lo heredamos de ApplicationRecord 
+```
+class Playlist  < ApplicationRecord
+
+end
+```
+
+LOS NOMBRES DE LAS TABALS DEBEN SER EN PLURAL, Y LOS MODELOS EN SINGULAR
+```
+rails g migration CreationPlaylists 
+```
+Con esto invocamos a active record y nos retorna un archivo de migracion que permite crear la tabla en la BdD
+```
+ create_table :playlists do |t|
+      t.string :name
+      t.integer :number_of_votes
+    end
+```
+Ejecutamos como siempre rake db:migrate
+
+Luego en routes.rb creamos los recursos para este modelo 
+```
+resource :playlist
+```
+finalmente creamos un controlador para manejar este modelo
+
+
+
+* Las migraciones pueden ser progresivas!, pueden modificarse los modelos y tablas del scaffold
