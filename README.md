@@ -230,10 +230,41 @@ Ejecutamos como siempre rake db:migrate
 
 Luego en routes.rb creamos los recursos para este modelo 
 ```
-resource :playlist
+resource :playlists
 ```
 finalmente creamos un controlador para manejar este modelo
 
+Para manejar las distintas vistas debemos crearlas en la carpeta views, y ademas crear un metodo para cada una desde el controlador
+
+Ej: 
+```
+class PlaylistsController < ApplicationController
+    def index
+        @playlists = Playlist.all
+    end
+end
+```
+Vista index 
+```
+<h1> Listado de listas de reproducción </h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Numero de votos</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @playlists.each do |p| %>
+            <tr>
+                <td><%= p.name %></td>
+                <td><%= p.number_of_votes %></td>
+            </tr>
+        <% end %>   
+    </tbody>
+</table>
+```
 
 
 * Las migraciones pueden ser progresivas!, pueden modificarse los modelos y tablas del scaffold
