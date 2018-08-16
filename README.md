@@ -308,4 +308,19 @@ En el metodo create creamos una nueva playlist con los parametros ingresamos, y 
       end
   end
 ```
+
+# Validaciones
+```
+# Con esto validamos la presencia de estos dos campos
+validates_presence_of  :name, :number_of_votes
+```
+
+```
+# Con esto validamos que exista un solo campo email
+validates :email, uniqueness: true
+```
+
+
+
+
 * Las migraciones pueden ser progresivas!, pueden modificarse los modelos y tablas del scaffold
