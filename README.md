@@ -266,5 +266,46 @@ Vista index
 </table>
 ```
 
+# Formularios
 
+El helper form for nos crea un formulario en html que incluye todas las configuraciones pertinentes por defecto,
+```
+<%= form_for( playlists) do |f| %>
+
+<% end %>
+```
+
+Tambien tenemos helpers para crear los label, campos de texto, numeros, select, etc...
+```
+   
+ # Campo de texto para el atributo name
+ <%= f.text_field :name %>
+ 
+ # Select con elementos de un array
+ <%= form.select(:cliente, Cliente.all.collect {|c| [ c.cliente_id, c.cliente_id ] } ) %>
+ 
+ # Boton de submit
+ <%= f.submit %>
+```
+
+Para crear un elemento con este formulario necesitamos un metodo create
+Para realizar esto primero recibimos los parametros ingresados en el formulario a travez de un metodo privado
+```
+ private
+  def playlists_params
+      params.require(:playlist).permit(:name, :number_of_votes)
+  end
+```
+
+En el metodo create creamos una nueva playlist con los parametros ingresamos, y validamos si este guarda efectivamente generando una accion en caso de hacerlo u otra en caso de no hacerlo
+```
+  def create
+      @playlist = Playlist.new(playlists_params)
+      if @playlist.save
+          # Guardo correctamente
+      else
+          # Error al guardar
+      end
+  end
+```
 * Las migraciones pueden ser progresivas!, pueden modificarse los modelos y tablas del scaffold
