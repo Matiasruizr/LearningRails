@@ -321,6 +321,64 @@ validates :email, uniqueness: true
 ```
 
 
-
-
 * Las migraciones pueden ser progresivas!, pueden modificarse los modelos y tablas del scaffold
+
+
+# Relaciones en modelos
+
+belongs_to | Pertenece a es una relacion 1 a 1
+  Por ejemplo, una orden de compra, corresponde a un cliente ( la orden de compra corresponderia a un cliente)
+has_one | Tiene uno y solo uno
+  Por ejemplo una orden de compre, tiene solo un cliente, tiene una subscripcion, no puede tener más!
+
+has_many | Uno a muchos
+  Un cliente, tiene muchas ordenes de compra
+  class Cliente < ActiveRecord::Base
+    has_many :oc
+  end
+  
+
+  
+  
+has_mayn:through | Relacion uno a muchos, a travez de un intermediario
+  Un medico tiene muchos pacientes a travez de una agenda
+  
+  class Doctor < ActiveRecord::Base
+    has_many :agendas
+    has_many :pacientes, through :agendas
+  end
+  
+  class Agendas < ActiveRecord::Base
+    has_many :doctor
+    has_many :paciente
+  end
+  
+  class Paciente < ActiveRecord::Base
+    has_many :agendas
+    has_many :doctores, through :agendas
+  end
+  
+ has_one:through | tiene uno a travez
+ class Proveedor < ActiveRecord::Base
+    has_one :account
+    has_one :account_history, throught :account
+  end
+ 
+  class Account < ActiveRecord::Base
+    belongs_to :supplier
+    has:one :account_historu
+  end
+  
+  class AccountHistory < ActiveRecord::Base
+    belongs_to :account
+  end
+  
+  has_and_belongs_to_many | relacion de muchos a muchos
+  class Assembly < ActiveRecord::Base
+    has_and_belongs_to_many :parts
+  end
+  
+  class Part < ActiveRecord::Base
+    has_and_belongs_to_many :assembles
+  end
+  
