@@ -29,3 +29,8 @@
 <br>
 
 <%= link_to 'New Track', new_track_path %>
+
+<%= form_tag(spotify_search_path, method: :get) do %>  <!-- Se creo un formulario que envia datos al controlador spotify_search) -->
+  <%= text_field_tag  :title %>
+  <%= submit_tag 'Search' %>
+<% end %>

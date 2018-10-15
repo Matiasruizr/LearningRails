@@ -1,0 +1,11 @@
+<h1>Spotify#search</h1>
+<p>Find me in app/views/spotify/search.html.erb</p>
+<%= params[:title] %>
+<ul>
+<% @results.each do |r| %>
+    <li>
+        <%= r.name %> | <a href="https://api.spotify.com/v1/artists/<%= r.artists[0].id %>"><%= r.artists[0].name %></a>
+    </li>
+    
+<% end %>
+</ul>
